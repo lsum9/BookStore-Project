@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- intro.xml -->
+
+<mapper namespace="intro">
+
+	<select id="bestList" resultType="java.util.Map">
+		SELECT isbn, book_name, book_pub, book_writerno, book_price, book_stock, book_pubdate, book_page, book_count, tag_no1, tag_no2, tag_no3, book_imgoriname, book_imgname, book_imgpath, book_imgsize, book_mainname, book_subname, book_content
+		FROM book
+		ORDER BY book_count DESC
+	</select>
+
+	<select id="recentList" resultType="java.util.Map">
+		SELECT isbn, book_name, book_pub, book_writerno, book_price, book_stock, book_pubdate, book_page, book_count, tag_no1, tag_no2, tag_no3, book_imgoriname, book_imgname, book_imgpath, book_imgsize, book_mainname, book_subname, book_content
+		FROM book
+		ORDER BY book_date DESC
+	</select>
+
+	<select id="todayList" resultType="java.util.Map">
+		select isbn, book_name, book_pub, book_writerno, book_price, book_stock, book_pubdate, book_page, book_count, tag_no1, tag_no2, tag_no3, book_imgoriname, book_imgname, book_imgpath, book_imgsize, book_mainname, book_subname, book_content
+		from book
+	 	order by rand();
+	</select>
+
+	<select id="randList" resultType="java.util.Map">
+		select isbn, book_name, book_pub, book_writerno, book_price, book_stock, book_pubdate, book_page, book_count, tag_no1, tag_no2, tag_no3, book_imgoriname, book_imgname, book_imgpath, book_imgsize, book_mainname, book_subname, book_content
+		from book
+		order by rand() DESC;
+	</select>
+
+	<select id="todayWriter" resultType="java.util.Map">
+		select writer_no, writer_name, writer_work, writer_birth, writer_place, writer_imgoriname, writer_imgname, writer_imgpath, writer_imgsize, writer_info
+		from writer
+		where writer_info is not null and writer_info != ' '
+		order by rand();
+	</select>
+
+	<select id="reviewList" resultType="java.util.Map">
+		SELECT review_no, profile_no, isbn, review_content, review_date, review_score
+		FROM review
+	</select>
+
+	<select id="recentReview" resultType="java.util.Map">
+		select book_name,DD.isbn,profile_name,review_score,review_content,review_date, member_id, book_imgname, book_content
+		from (select isbn,profile_name,review_score,review_content,review_date,AA.member_id
+			  from profile AA join review BB
+								   on AA.member_id = BB.member_id) CC join book DD
+																			 on CC.isbn=DD.isbn
+		order by review_date
+	</select>
+
+	<select id="profile" resultType="java.util.Map">
+		select *
+		from profile
+	</select>
+
+	<select id="bbti" parameterType="String" resultType="java.util.Map">
+		select *
+		from profile left join book
+	  	on profile.bbti_name=book.bbti_name
+		where member_id=#{member_id}
+	</select>
+
+</mapper>

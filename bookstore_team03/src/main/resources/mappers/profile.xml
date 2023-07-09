@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- profile.xml -->
+<mapper namespace="profile">
+
+<!-- 프로필 등록 -->
+	<insert id="insert" parameterType="java.util.Map">
+		INSERT INTO profile(member_id, profile_name, profile_intro, profile_imgname, profile_imgoriname, profile_imgpath, profile_imgsize)
+		VALUES(#{member_id}, #{profile_name}, #{profile_intro}, #{profile_imgname}, #{profile_imgoriname}, #{profile_imgpath}, #{profile_imgsize})
+	</insert>
+
+
+	<select id="detail" resultType="kr.co.itwill.profile.ProfileDTO" parameterType="int">
+		SELECT profile_name, profile_intro, profile_imgname, profile_imgoriname, profile_imgpath, profile_imgsize
+		FROM profile
+		WHERE profile_no = #{profile_no}
+	</select>
+	
+	<select id="list" resultType="java.util.Map" parameterType="String">
+		SELECT profile_no, profile_name, profile_intro, profile_imgname, profile_imgoriname, profile_imgpath, profile_imgsize
+		FROM profile
+		WHERE member_id = #{member_id}
+	</select>
+	
+	<select id="search" parameterType="String" resultType="java.util.Map">
+		SELECT member_id, profile_name, profile_intro, profile_imgname, profile_imgsize
+		FROM book
+		WHERE profile_no LIKE #{profile_no}
+	</select>
+	
+	<select id="filename" resultType="String" parameterType="String">
+        SELECT profile_imgname
+        FROM profile
+        WHERE member_id=#{member_id}
+    </select>
+
+	<delete id="delete" parameterType="String">
+		DELETE from profile
+		WHERE member_id=#{member_id}
+	</delete>
+	
+	<update id="update" parameterType="java.util.Map">
+		UPDATE profile
+		SET 
+		profile_name = #{profile_name},
+		profile_intro = #{profile_intro},
+		profile_imgname = #{profile_imgname},
+		profile_imgoriname = #{profile_imgoriname},
+		profile_imgpath = #{profile_imgpath},
+		profile_imgsize = #{profile_imgsize}
+		WHERE member_id = #{member_id}
+	</update>
+	
+</mapper>

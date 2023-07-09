@@ -1,0 +1,88 @@
+@font-face {
+    font-family: 'HANAMDAUM';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/HANAMDAUM.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+.find-title {
+	font-family: 'HANAMDAUM';
+}
+
+.find-section {
+	height: 100%;
+    /* height: calc(100vh - 200px); */
+    overflow: hidden;
+}
+.find-page-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.find-title {
+    margin-bottom: 50px;
+}
+input {
+    border: 0;
+}
+.id-pw {
+    display: flex;
+    flex-direction: column;
+}
+
+/* .form-group {
+    width: 500px;
+    height: 50px;
+    margin-bottom: 20px;
+    border-radius: 25px;
+    border: 1px solid gray;
+} */
+
+.user-pw {
+    width: 500px;
+    height: 50px;
+    margin-bottom: 20px;
+    border-radius: 25px;
+    border: 1px solid gray;
+}
+
+.id-save {
+    width: 20px;
+    height: 20px;
+}
+
+.login-btn {
+    width: 100px;
+    height: 120px;
+    margin-left: 20px;
+    background-color:  #117cd9;
+    color: #fff;
+    border-radius: 15px;
+}
+
+.login-btn-flex {
+    display: flex;
+}
+
+.flex {
+    margin: 0 auto;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    width: 620px;
+}
+.id-pw-btn {
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+    color: #fff;
+    background-color: #808080;
+} 
+
+
+.f {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

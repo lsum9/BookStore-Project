@@ -1,0 +1,43 @@
+#qna{
+    display: none;
+}
+
+.qBox{
+    background-color: whitesmoke;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 24px;
+    width: 80%;
+}
+
+.que {
+    background-color: whitesmoke;
+    border-radius: 20px;
+    display: block;
+    width: 80%;
+    border: 0px;
+    font-size: 20px;
+}
+
+.que:hover, .que:focus{
+    background-color: #f29268;
+    color: whitesmoke;
+}
+
+.status{
+    height: 20px;
+    width: 80%;
+    background-color: white;
+    border-radius: 20px;
+}
+.statusBar{
+    height: 100%;
+    border-radius: 20px;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffb76b+0,ffa73d+34,ff7c00+67,ff7f04+100 */
+    background: rgb(255,183,107); /* Old browsers */
+    background: -moz-linear-gradient(left,  rgba(255,183,107,1) 0%, rgba(255,167,61,1) 34%, rgba(255,124,0,1) 67%, rgba(255,127,4,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  rgba(255,183,107,1) 0%,rgba(255,167,61,1) 34%,rgba(255,124,0,1) 67%,rgba(255,127,4,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  rgba(255,183,107,1) 0%,rgba(255,167,61,1) 34%,rgba(255,124,0,1) 67%,rgba(255,127,4,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb76b', endColorstr='#ff7f04',GradientType=1 ); /* IE6-9 */
+
+}
